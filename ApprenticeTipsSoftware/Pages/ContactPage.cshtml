@@ -1,0 +1,96 @@
+﻿@page
+@model ApprenticeTipsSoftware.Pages.ContactPageModel
+@{
+}
+
+<p><strong>Please enter your details and we'll be in touch</strong></p>
+
+
+<form method="post">
+
+    <div class="row">
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-2">
+            <p>First name:</p>
+        </div>
+        <input type="text" asp-for="FirstName" />
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-2">
+            <p>Surname:</p>
+        </div>
+        <input type="text" asp-for="Surname" />
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-2">
+            <p>Email:</p>
+        </div>
+        <input type="text" asp-for="EmailAddress" />
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-2">
+            <p>Contact Number:</p>
+        </div>
+        <input type="text" asp-for="ContactNumber" />
+    </div>
+
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <p>
+                Level of previous qualification:
+            </p>
+        </div>
+
+        <select name="Qualification" style="width: 185px; height: 40px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+
+        <br />
+
+    </div>
+
+    <p><strong>Please select the routes that interest you:</strong></p>
+
+    <input name="Agriculture" type="checkbox" value="1" /> Agriculture, environmental and animal care<br />
+    <input name="Business" type="checkbox" value="1" /> Business and administration<br />
+    <input name="Care" type="checkbox" value="1" /> Care services<br />
+    <input name="Catering" type="checkbox" value="1" /> Catering and hospitality<br />
+    <input name="Construction" type="checkbox" value="1" /> Construction<br />
+    <input name="Creative" type="checkbox" value="1" /> Creative and design<br />
+    <input name="Digital" type="checkbox" value="1" /> Digital<br />
+    <input name="Education" type="checkbox" value="1" /> Education and childcare<br />
+    <input name="Engineering" type="checkbox" value="1" /> Engineering and manufacturing<br />
+    <input name="Hair" type="checkbox" value="1" /> Hair and beauty<br />
+    <input name="Health" type="checkbox" value="1" /> Health and science<br />
+    <input name="Legal" type="checkbox" value="1" /> Legal, finance and accounting<br />
+    <input name="Protective" type="checkbox" value="1" /> Protective services<br />
+    <input name="Sales" type="checkbox" value="1" /> Sales, marketing and procurement<br />
+    <input name="Transport" type="checkbox" value="1" /> Transport and logistics<br />
+
+    <br />
+
+    <div class="row">
+        <div class="col-6">
+            <textarea name="Comment" rows="2" cols="20" style="height:80px;width:50%;" placeholder="Please provide any other information that you wish to let our recruiters know... (optional)"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3"><input type="submit" value="Submit Message" /></div>
+        <div><input type="submit" asp-page-handler="GoBack" value="Back" class="float-right"></div>
+    </div>
+
+</form>
