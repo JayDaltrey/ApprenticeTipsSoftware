@@ -10,6 +10,8 @@ using ApprenticeTipsSoftware.Models;
 using ApprenticeTipsSoftware.RequestResponseModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace ApprenticeTipsSoftware.Pages
 {
@@ -117,9 +119,9 @@ namespace ApprenticeTipsSoftware.Pages
 
                 request.Contact = contact;
 
-                AddContactDetailsToDB(request);
+                AddContactDetails(request);
 
-                return RedirectToPage("/FormResult", new {FirstName});
+                return RedirectToPage("/FormResult", new { FirstName });
 
             }
 
@@ -131,15 +133,29 @@ namespace ApprenticeTipsSoftware.Pages
             return RedirectToPage("/Index");
         }
 
-        private void AddContactDetailsToDB(DetailAdderRequest request)
+        private void AddContactDetails(DetailAdderRequest AdderRequest)
         {
-            var DBinserter = new DatabaseInserter();
-
-            int currentId = DBinserter.InsertData("email, firstname, surname, phone, previous_level, comments", $"{request.Contact.EmailAddress}', '{request.Contact.FirstName}', '{request.Contact.Surname}', '{request.Contact.ContactNumber}', '{request.Contact.Qualification}', '{request.Contact.Comment}", "Contact", "webform");
-            DBinserter.InsertCheckboxData(request, currentId);
-
+            var client = new RestClient("https://localhost:44364/api/Apprenticeship/AddDetailsToDB");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("ApiKey", "Th4ZbP42RkOnrT47AqEt");
+            request.AddParameter("application/json", ParameterType.RequestBody);
+            string json = JsonConvert.SerializeObject(AdderRequest);
+            request.AddParameter("application/json",
+                    json +
+                   "\r\n", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
 
         }
-
     }
 }
+
+
+//private void AddContactDetailsToDB(DetailAdderRequest request)
+//{
+//    var DBinserter = new DatabaseInserter();
+
+//    int currentId = DBinserter.InsertData("email, firstname, surname, phone, previous_level, comments", $"{request.Contact.EmailAddress}', '{request.Contact.FirstName}', '{request.Contact.Surname}', '{request.Contact.ContactNumber}', '{request.Contact.Qualification}', '{request.Contact.Comment}", "Contact", "webform");
+//    DBinserter.InsertCheckboxData(request, currentId);
+
+//}

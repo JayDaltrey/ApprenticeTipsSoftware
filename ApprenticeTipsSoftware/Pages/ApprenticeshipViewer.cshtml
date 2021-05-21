@@ -1,6 +1,7 @@
 ﻿@page
 @model ApprenticeTipsSoftware.Pages.ApprenticeshipViewerModel
 @{
+//Layout = "/Pages/_GeneralLayout.cshtml";
 }
 
 <p><strong>Use the fields below to find apprenticeships</strong></p>
@@ -104,7 +105,7 @@
     <br />
 
     <div class="row mb-4">
-        <div class="col-3"><input type="submit" value="Find Apprenticeships" /></div>
+        <div class="col-2"><input type="submit" value="Find Apprenticeships" /></div>
         <div><input type="submit" asp-page-handler="GoBack" value="Back" class="float-right"></div>
     </div>
 

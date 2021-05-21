@@ -3,21 +3,23 @@
 @{
 }
 
+
 <p><strong>Please enter your details and we'll be in touch</strong></p>
 
 
 <form method="post">
 
+
     <div class="row">
         <div asp-validation-summary="All" class="text-danger"></div>
     </div>
 
-    <div class="row mb-2">
-        <div class="col-2">
-            <p>First name:</p>
+        <div class="row mb-2">
+            <div class="col-2">
+                <p>First name:</p>
+            </div>
+            <input type="text" asp-for="FirstName"  />
         </div>
-        <input type="text" asp-for="FirstName" />
-    </div>
 
     <div class="row mb-2">
         <div class="col-2">
@@ -48,7 +50,7 @@
             </p>
         </div>
 
-        <select name="Qualification" style="width: 185px; height: 40px;">
+        <select id="Qualification" style="width: 185px; height: 40px;">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -64,7 +66,7 @@
 
     <p><strong>Please select the routes that interest you:</strong></p>
 
-    <input name="Agriculture" type="checkbox" value="1" /> Agriculture, environmental and animal care<br />
+    <input id="Agriculture" type="checkbox" value="1" /> Agriculture, environmental and animal care<br />
     <input name="Business" type="checkbox" value="1" /> Business and administration<br />
     <input name="Care" type="checkbox" value="1" /> Care services<br />
     <input name="Catering" type="checkbox" value="1" /> Catering and hospitality<br />
@@ -91,7 +93,7 @@
     <br />
 
     <div class="row">
-        <div class="col-3"><input type="submit" value="Submit Message" /></div>
+        <div class="col-2"><input type="submit" value="Submit Message" /></div>
         <div><input type="submit" asp-page-handler="GoBack" value="Back" class="float-right"></div>
     </div>
 
