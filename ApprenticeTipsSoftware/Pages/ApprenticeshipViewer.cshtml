@@ -1,0 +1,139 @@
+﻿@page
+@model ApprenticeTipsSoftware.Pages.ApprenticeshipViewerModel
+@{
+}
+
+<p><strong>Use the fields below to find apprenticeships</strong></p>
+
+
+<form method="post">
+
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <p>
+                Route:
+            </p>
+        </div>
+
+        <select name="SelectedRoute" style="width: 185px; height: 40px;">
+            <option value="any">Any</option>
+            <option value="Agriculture, environmental and animal care">Agriculture, environmental and animal care</option>
+            <option value="Business and administration">Business and administration</option>
+            <option value="Care Services">Care Services</option>
+            <option value="Catering and hospitality">Catering and hospitality</option>
+            <option value="Construction">Construction</option>
+            <option value="Creative">Creative and design</option>
+            <option value="Digital">Digital</option>
+            <option value="Education and childcare">Education and childcare</option>
+            <option value="Engineering and manufacturing">Engineering and manufacturing</option>
+            <option value="Hair and beauty">Hair and beauty</option>
+            <option value="Health and science">Health and science</option>
+            <option value="Legal, finance and accounting">Legal, finance and accounting</option>
+            <option value="Protective services">Protective services</option>
+            <option value="Sales, marketing and procurement">Sales, marketing and procurement</option>
+            <option value="Transport and logistics">Transport and logistics</option>
+        </select>
+
+    </div>
+
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <p>
+                Status:
+            </p>
+        </div>
+
+        <select name="SelectedStatus" style="width: 185px; height: 40px;">
+            <option value="any">Any</option>
+            <option value="Approved for delivery">Approved for delivery</option>
+            <option value="In development">In development</option>
+            <option value="Retired">Retired</option>
+            <option value="Withdrawn">Withdrawn</option>
+            <option value="Proposal in development">Proposal in development</option>
+        </select>
+
+    </div>
+
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <p>
+                Level:
+            </p>
+        </div>
+
+        <select name="SelectedLevel" style="width: 185px; height: 40px;">
+            <option value="any">Any</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+
+    </div>
+
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <p>
+                Duration:
+            </p>
+        </div>
+
+        <select name="SelectedDuration" style="width: 185px; height: 40px;">
+            <option value="any">Any</option>
+            <option value="12">12 months</option>
+            <option value="13">13 months</option>
+            <option value="14">14 months</option>
+            <option value="15">15 months</option>
+            <option value="16">16 months</option>
+            <option value="18">18 months</option>
+            <option value="21">21 months</option>
+            <option value="22">22 months</option>
+            <option value="24">24 months</option>
+            <option value="26">26 months</option>
+        </select>
+
+    </div>
+
+    <br />
+
+    <div class="row mb-4">
+        <div class="col-3"><input type="submit" value="Find Apprenticeships" /></div>
+        <div><input type="submit" asp-page-handler="GoBack" value="Back" class="float-right"></div>
+    </div>
+
+    <p><strong>@Model.FormResultMessage</strong></p>
+
+</form>
+
+@if (Model.Apprenticeships != null && Model.Apprenticeships.Count != 0)
+{
+    <div class=" row">
+        <div class=" col-12">@Model.FilterOptions</div>
+    </div>
+
+    <br />
+
+    <div class=" row">
+        <div class=" col-2"><strong>Course Name</strong></div>
+        <div class=" col-2"><strong>Course Link</strong></div>
+    </div>
+
+    <br />
+
+    @foreach (var apprenticeship in Model.Apprenticeships)
+    {
+        <div class="row">
+            <div class="col-2">@apprenticeship.Name</div>
+            <div class="col-4"><a href="@apprenticeship.Link">@apprenticeship.Link</a></div>
+        </div>
+
+        <br />
+    }
+}
