@@ -121,7 +121,7 @@ namespace ApprenticeTipsSoftware.Pages
 
                 AddContactDetails(request);
 
-                return RedirectToPage("/FormResult", new { FirstName });
+                return RedirectToPage("/FormResult", new {FirstName});
 
             }
 
