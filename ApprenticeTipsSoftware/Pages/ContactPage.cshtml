@@ -14,12 +14,12 @@
         <div asp-validation-summary="All" class="text-danger"></div>
     </div>
 
-        <div class="row mb-2">
-            <div class="col-2">
-                <p>First name:</p>
-            </div>
-            <input type="text" asp-for="FirstName" />
+    <div class="row mb-2">
+        <div class="col-2">
+            <p>First name:</p>
         </div>
+        <input type="text" asp-for="FirstName" />
+    </div>
 
     <div class="row mb-2">
         <div class="col-2">
@@ -50,7 +50,7 @@
             </p>
         </div>
 
-        <select name="Qualification" style="width: 185px; height: 40px;">
+        <select asp-for="Qualification" style="width: 185px; height: 40px;">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,22 +66,22 @@
 
     <p><strong>Please select the routes that interest you:</strong></p>
 
-    <input name="Agriculture" type="checkbox" value="1" /> Agriculture, environmental and animal care<br />
-    <input name="Business" type="checkbox" value="1" /> Business and administration<br />
-    <input name="Care" type="checkbox" value="1" /> Care services<br />
-    <input name="Catering" type="checkbox" value="1" /> Catering and hospitality<br />
-    <input name="Construction" type="checkbox" value="1" /> Construction<br />
-    <input name="Creative" type="checkbox" value="1" /> Creative and design<br />
-    <input name="Digital" type="checkbox" value="1" /> Digital<br />
-    <input name="Education" type="checkbox" value="1" /> Education and childcare<br />
-    <input name="Engineering" type="checkbox" value="1" /> Engineering and manufacturing<br />
-    <input name="Hair" type="checkbox" value="1" /> Hair and beauty<br />
-    <input name="Health" type="checkbox" value="1" /> Health and science<br />
-    <input name="Legal" type="checkbox" value="1" /> Legal, finance and accounting<br />
-    <input name="Protective" type="checkbox" value="1" /> Protective services<br />
-    <input name="Sales" type="checkbox" value="1" /> Sales, marketing and procurement<br />
-    <input name="Transport" type="checkbox" value="1" /> Transport and logistics<br />
-
+    <input asp-for="Agriculture" /> Agriculture, environmental and animal care<br />
+    <input asp-for="Business" /> Business and administration<br />
+    <input asp-for="Care" /> Care services<br />
+    <input asp-for="Catering" />Catering and hospitality<br />
+    <input asp-for="Construction" /> Construction<br />
+    <input asp-for="Creative" />Creative and design<br />
+    <input asp-for="Digital" />Digital<br />
+    <input asp-for="Education" />Education and childcare<br />
+    <input asp-for="Engineering" />Engineering and manufacturing<br />
+    <input asp-for="Hair" />Hair and beauty<br />
+    <input asp-for="Health" />Health and science<br />
+    <input asp-for="Legal" />Legal, finance and accounting<br />
+    <input asp-for="Protective" />Protective services<br />
+    <input asp-for="Sales" />Sales, marketing and procurement<br />
+    <input asp-for="Transport" />Transport and logistics<br />
+  
     <br />
 
     <div class="row">

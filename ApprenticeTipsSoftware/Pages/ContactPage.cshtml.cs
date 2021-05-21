@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ApprenticeTipsSoftware.Classes;
 using ApprenticeTipsSoftware.Models;
 using ApprenticeTipsSoftware.RequestResponseModels;
 using Microsoft.AspNetCore.Mvc;
@@ -39,49 +38,51 @@ namespace ApprenticeTipsSoftware.Pages
         //Checkbox properties
 
         [BindProperty]
-        public int Agriculture { get; set; }
+        public bool Agriculture { get; set; }
+
+        //change all these to bools
 
         [BindProperty]
-        public int Business { get; set; }
+        public bool Business { get; set; }
 
         [BindProperty]
-        public int Care { get; set; }
+        public bool Care { get; set; }
 
         [BindProperty]
-        public int Catering { get; set; }
+        public bool Catering { get; set; }
 
         [BindProperty]
-        public int Construction { get; set; }
+        public bool Construction { get; set; }
 
         [BindProperty]
-        public int Creative { get; set; }
+        public bool Creative { get; set; }
 
         [BindProperty]
-        public int Digital { get; set; }
+        public bool Digital { get; set; }
 
         [BindProperty]
-        public int Education { get; set; }
+        public bool Education { get; set; }
 
         [BindProperty]
-        public int Engineering { get; set; }
+        public bool Engineering { get; set; }
 
         [BindProperty]
-        public int Hair { get; set; }
+        public bool Hair { get; set; }
 
         [BindProperty]
-        public int Health { get; set; }
+        public bool Health { get; set; }
 
         [BindProperty]
-        public int Legal { get; set; }
+        public bool Legal { get; set; }
 
         [BindProperty]
-        public int Protective { get; set; }
+        public bool Protective { get; set; }
 
         [BindProperty]
-        public int Sales { get; set; }
+        public bool Sales { get; set; }
 
         [BindProperty]
-        public int Transport { get; set; }
+        public bool Transport { get; set; }
 
         public IActionResult OnPost()
         {
@@ -96,26 +97,26 @@ namespace ApprenticeTipsSoftware.Pages
                 contact.Surname = Surname;
                 contact.ContactNumber = ContactNumber;
                 contact.Qualification = Qualification;
+                contact.Comment = Comment;
+                contact.ContactNumber = ContactNumber;
 
                 //checkbox properties
 
-                contact.Agriculture = Agriculture;
-                contact.Business = Business;
-                contact.Care = Care;
-                contact.Catering = Catering;
-                contact.Comment = Comment;
-                contact.Construction = Construction;
-                contact.ContactNumber = ContactNumber;
-                contact.Creative = Creative;
-                contact.Digital = Digital;
-                contact.Education = Education;
-                contact.Engineering = Engineering;
-                contact.Hair = Hair;
-                contact.Health = Health;
-                contact.Legal = Legal;
-                contact.Protective = Protective;
-                contact.Sales = Sales;
-                contact.Transport = Transport;
+                contact.Agriculture = Agriculture ? 1 : 0;
+                contact.Business = Business ? 1 : 0;
+                contact.Care = Care ? 1 : 0;
+                contact.Catering = Catering ? 1 : 0;
+                contact.Construction = Construction ? 1 : 0;
+                contact.Creative = Creative ? 1 : 0; 
+                contact.Digital = Digital ? 1 : 0;
+                contact.Education = Education ? 1 : 0;
+                contact.Engineering = Engineering ? 1 : 0;
+                contact.Hair = Hair ? 1 : 0;
+                contact.Health = Health ? 1 : 0;
+                contact.Legal = Legal ? 1 : 0;
+                contact.Protective = Protective ? 1 : 0;
+                contact.Sales = Sales ? 1 : 0;
+                contact.Transport = Transport ? 1 : 0;
 
                 request.Contact = contact;
 
