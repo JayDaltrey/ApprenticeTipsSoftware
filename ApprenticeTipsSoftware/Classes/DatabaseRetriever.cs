@@ -11,7 +11,7 @@ namespace ApprenticeTipsSoftware.Classes
 {
     public class DatabaseRetriever
     {
-        public List<ApprenticeshipModel> GetApprenticeships(ApprenticeshipFinder appGetter, FilterModel selectedFilter)
+        public List<ApprenticeshipModel> GetApprenticeships(ApprenticeshipFinderRequest request)
         {
             DataTable dt = new DataTable();
 
@@ -26,24 +26,24 @@ namespace ApprenticeTipsSoftware.Classes
             sql.Append($"select * from Apprenticeships ");
             sql.Append($"where 1 = 1 ");
 
-            if (selectedFilter.BoolRoute)
+            if (request.BoolRoute)
             {
-                sql.Append($"and route = '{appGetter.Route}'");
+                sql.Append($"and route = '{request.Route}'");
             }
 
-            if (selectedFilter.BoolLevel)
+            if (request.BoolLevel)
             {
-                sql.Append($"and level = '{appGetter.Level}'");
+                sql.Append($"and level = '{request.Level}'");
             }
 
-            if (selectedFilter.BoolStatus)
+            if (request.BoolStatus)
             {
-                sql.Append($"and status = '{appGetter.Status}'");
+                sql.Append($"and status = '{request.Status}'");
             }
 
-            if (selectedFilter.BoolDuration)
+            if (request.BoolDuration)
             {
-                sql.Append($"and duration = '{appGetter.Duration}'");
+                sql.Append($"and duration = '{request.Duration}'");
             }
 
 
